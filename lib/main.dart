@@ -27,8 +27,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => di.sl<ThemeBloc>()),
         BlocProvider(create: (_) => di.sl<LanguageBloc>()),
         BlocProvider(create: (_) => di.sl<AuthBloc>()),
-        BlocProvider(create: (_) => di.sl<CartBloc>()), // Global Cart
-        BlocProvider(create: (_) => di.sl<FavoriteBloc>()), // Global Favorites
+        BlocProvider(create: (_) => di.sl<CartBloc>()..add(GetCart())), // Global Cart - load immediately
+        BlocProvider(create: (_) => di.sl<FavoriteBloc>()..add(GetFavorites())), // Global Favorites - load immediately
       ],
       child: BlocBuilder<LanguageBloc, LanguageState>(
         builder: (context, languageState) {

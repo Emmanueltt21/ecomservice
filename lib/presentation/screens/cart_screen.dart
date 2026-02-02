@@ -12,8 +12,9 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => GetIt.I<CartBloc>()..add(GetCart()), // Ensure loaded
+    // Use existing singleton CartBloc instead of creating new instance
+    return BlocProvider.value(
+      value: GetIt.I<CartBloc>(),
       child: const _CartView(),
     );
   }

@@ -556,9 +556,9 @@ All screens support dark mode with:
 
 ## Contact & Support
 
-**Project Lead:** [Your Name]  
-**Email:** support@ecomservice.com  
-**Repository:** https://github.com/yourusername/ecomservics
+**Project Lead:** Taah Emmanuel T  
+**Email:** ttemmanuel2020@gmail.com  
+**Repository:** https://github.com/Emmanueltt21/ecomservics
 
 ---
 

@@ -12,8 +12,9 @@ class FavoritesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => GetIt.I<FavoriteBloc>()..add(GetFavorites()), // Ensure loaded
+    // Use existing singleton FavoriteBloc instead of creating new instance
+    return BlocProvider.value(
+      value: GetIt.I<FavoriteBloc>(),
       child: const _FavoritesView(),
     );
   }

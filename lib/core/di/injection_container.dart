@@ -52,13 +52,13 @@ Future<void> init() async {
   sl.registerLazySingleton<GetCategoriesUseCase>(() => GetCategoriesUseCase(sl()));
   sl.registerLazySingleton<GetProductByIdUseCase>(() => GetProductByIdUseCase(sl()));
   
-  // Blocs
-  sl.registerFactory(() => ThemeBloc(sharedPreferences: sl()));
-  sl.registerFactory(() => LanguageBloc(sharedPreferences: sl()));
-  sl.registerFactory(() => AuthBloc());
+  // Blocs (app-level state as singletons, screen-level as factories)
+  sl.registerLazySingleton(() => ThemeBloc(sharedPreferences: sl()));
+  sl.registerLazySingleton(() => LanguageBloc(sharedPreferences: sl()));
+  sl.registerLazySingleton(() => AuthBloc());
+  sl.registerLazySingleton(() => CartBloc(sl()));
+  sl.registerLazySingleton(() => FavoriteBloc(sl()));
   sl.registerFactory(() => HomeBloc(getCategoriesUseCase: sl(), getProductsUseCase: sl()));
   sl.registerFactory(() => ProductBloc(sl()));
-  sl.registerFactory(() => CartBloc(sl()));
-  sl.registerFactory(() => FavoriteBloc(sl()));
   sl.registerFactory(() => ProfileBloc());
 }
