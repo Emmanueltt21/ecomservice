@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Profile - ecomservice</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1337ec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101322",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-[#0d101b] dark:text-white transition-colors duration-200">
+<div class="relative flex h-auto min-h-screen w-full flex-col max-w-[480px] mx-auto overflow-x-hidden border-x border-gray-100 dark:border-gray-800 shadow-sm">
+<!-- TopAppBar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10">
+<div class="text-[#0d101b] dark:text-white flex size-12 shrink-0 items-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</div>
+<h2 class="text-[#0d101b] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center font-display">Profile</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 bg-transparent text-[#0d101b] dark:text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</div>
+<!-- ProfileHeader -->
+<div class="flex p-6 @container">
+<div class="flex w-full flex-col gap-4 items-center">
+<div class="flex gap-4 flex-col items-center relative">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-32 w-32 border-4 border-white dark:border-gray-700 shadow-md" data-alt="Professional headshot of a smiling male user" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD79uN2csw-SqxIRzNpuAy-9duVHb3eKCbH8eqLjnL4ojOFS-ciBxQb7cO4jVAy_sALcHfz45AALC7cpmW0L74w3W9izvHeR5bM-lPhImaLzhWeng8Gnq5q3PFTsKG0Fx-RXd-8DR56GTiqBwr1ojSfMNJj_qtK_dj9TaJlTUaCaHFiZnjQKKVUvNVK2Ud50gm1j3h7vvHzkjIvviamuFm5BzokZTMuAM2Zdq2kOVw8H_Mmdvym0Ckv3Qa3SxtOUaUbDLHWakk19A");'>
+</div>
+<div class="absolute bottom-1 right-1 bg-primary text-white p-1 rounded-full border-2 border-white dark:border-background-dark flex items-center justify-center">
+<span class="material-symbols-outlined !text-sm" style="font-variation-settings: 'FILL' 1">verified</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center">
+<p class="text-[#0d101b] dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] text-center font-display">Alex Johnson</p>
+<p class="text-[#4c599a] dark:text-gray-400 text-sm font-medium leading-normal text-center mt-1">alex.johnson@ecomservice.com</p>
+<div class="mt-2 px-3 py-1 bg-primary/10 rounded-full">
+<p class="text-primary text-xs font-bold leading-normal text-center uppercase tracking-wider">Verified Member</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Content Section -->
+<h3 class="text-[#0d101b] dark:text-white text-sm font-bold uppercase tracking-widest leading-tight px-6 pb-2 pt-6 opacity-60 font-display">Content &amp; Preferences</h3>
+<div class="flex flex-col gap-1 px-2">
+<!-- ListItem: Blog -->
+<div class="flex items-center gap-4 bg-white dark:bg-gray-800/50 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors mx-4 rounded-xl px-4 min-h-[64px] justify-between cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-10">
+<span class="material-symbols-outlined">newspaper</span>
+</div>
+<p class="text-[#0d101b] dark:text-white text-base font-medium leading-normal flex-1 truncate font-display">Blog</p>
+</div>
+<div class="shrink-0">
+<span class="material-symbols-outlined text-gray-400">chevron_right</span>
+</div>
+</div>
+<!-- ListItem: Language -->
+<div class="flex items-center gap-4 bg-white dark:bg-gray-800/50 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors mx-4 rounded-xl px-4 min-h-[64px] justify-between cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-10">
+<span class="material-symbols-outlined">language</span>
+</div>
+<p class="text-[#0d101b] dark:text-white text-base font-medium leading-normal flex-1 truncate font-display">Language</p>
+</div>
+<div class="flex items-center gap-2">
+<p class="text-[#4c599a] dark:text-gray-400 text-sm font-normal leading-normal">English</p>
+<span class="material-symbols-outlined text-gray-400">chevron_right</span>
+</div>
+</div>
+<!-- ListItem: Currency -->
+<div class="flex items-center gap-4 bg-white dark:bg-gray-800/50 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors mx-4 rounded-xl px-4 min-h-[64px] justify-between cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-10">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<p class="text-[#0d101b] dark:text-white text-base font-medium leading-normal flex-1 truncate font-display">Currency</p>
+</div>
+<div class="flex items-center gap-2">
+<p class="text-[#4c599a] dark:text-gray-400 text-sm font-normal leading-normal">USD ($)</p>
+<span class="material-symbols-outlined text-gray-400">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Support Section -->
+<h3 class="text-[#0d101b] dark:text-white text-sm font-bold uppercase tracking-widest leading-tight px-6 pb-2 pt-8 opacity-60 font-display">Support &amp; Legal</h3>
+<div class="flex flex-col gap-1 px-2">
+<!-- ListItem: Refund Policy -->
+<div class="flex items-center gap-4 bg-white dark:bg-gray-800/50 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors mx-4 rounded-xl px-4 min-h-[64px] justify-between cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-10">
+<span class="material-symbols-outlined">assignment_return</span>
+</div>
+<p class="text-[#0d101b] dark:text-white text-base font-medium leading-normal flex-1 truncate font-display">Refund Policy</p>
+</div>
+<div class="shrink-0">
+<span class="material-symbols-outlined text-gray-400">chevron_right</span>
+</div>
+</div>
+<!-- ListItem: Terms & Services -->
+<div class="flex items-center gap-4 bg-white dark:bg-gray-800/50 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors mx-4 rounded-xl px-4 min-h-[64px] justify-between cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-10">
+<span class="material-symbols-outlined">gavel</span>
+</div>
+<p class="text-[#0d101b] dark:text-white text-base font-medium leading-normal flex-1 truncate font-display">Terms &amp; Services</p>
+</div>
+<div class="shrink-0">
+<span class="material-symbols-outlined text-gray-400">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- System Section -->
+<h3 class="text-[#0d101b] dark:text-white text-sm font-bold uppercase tracking-widest leading-tight px-6 pb-2 pt-8 opacity-60 font-display">App Settings</h3>
+<div class="flex flex-col gap-1 px-2 mb-10">
+<!-- Theme Toggle -->
+<div class="flex items-center gap-4 bg-white dark:bg-gray-800/50 mx-4 rounded-xl px-4 min-h-[64px] justify-between">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-10">
+<span class="material-symbols-outlined">dark_mode</span>
+</div>
+<p class="text-[#0d101b] dark:text-white text-base font-medium leading-normal flex-1 truncate font-display">Dark Theme</p>
+</div>
+<div class="shrink-0">
+<div class="w-11 h-6 bg-gray-200 dark:bg-primary rounded-full relative transition-colors duration-300 cursor-pointer" onclick="document.documentElement.classList.toggle('dark')">
+<div class="absolute right-1 top-1 bg-white w-4 h-4 rounded-full shadow-sm transition-all transform dark:-translate-x-5"></div>
+</div>
+</div>
+</div>
+<!-- ListItem: Settings -->
+<div class="flex items-center gap-4 bg-white dark:bg-gray-800/50 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors mx-4 rounded-xl px-4 min-h-[64px] justify-between cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-10">
+<span class="material-symbols-outlined">tune</span>
+</div>
+<p class="text-[#0d101b] dark:text-white text-base font-medium leading-normal flex-1 truncate font-display">General Settings</p>
+</div>
+<div class="shrink-0">
+<span class="material-symbols-outlined text-gray-400">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Logout Button (Extra) -->
+<div class="px-6 pb-12">
+<button class="w-full bg-red-50 dark:bg-red-900/10 text-red-600 dark:text-red-400 font-bold py-4 rounded-xl border border-red-100 dark:border-red-900/30 font-display">
+                Sign Out
+            </button>
+<p class="text-center text-xs text-gray-400 mt-6 mb-4">Version 2.4.1 (Build 120)</p>
+</div>
+</div>
+</body></html>

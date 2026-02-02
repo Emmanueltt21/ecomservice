@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Favorites - ecomservice</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1337ec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101322",
+                        "accent-teal": "#2dd4bf",
+                        "accent-blue": "#3b82f6"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#0d101b] dark:text-white transition-colors duration-300">
+<div class="relative flex min-h-screen w-full flex-col max-w-[430px] mx-auto bg-white dark:bg-background-dark shadow-2xl overflow-x-hidden">
+<!-- TopAppBar (iOS Style) -->
+<header class="sticky top-0 z-50 flex items-center bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-4 py-3 border-b border-gray-100 dark:border-gray-800">
+<button class="flex items-center justify-center p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios</span>
+</button>
+<h1 class="flex-1 text-center text-lg font-bold leading-tight tracking-tight pr-8">Favorites</h1>
+</header>
+<!-- Tabs -->
+<nav class="bg-white dark:bg-background-dark">
+<div class="flex border-b border-gray-100 dark:border-gray-800 px-4 gap-8">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-primary text-primary pb-[13px] pt-4" href="#">
+<p class="text-sm font-bold leading-normal tracking-wide">All Items (12)</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-transparent text-gray-500 dark:text-gray-400 pb-[13px] pt-4" href="#">
+<p class="text-sm font-bold leading-normal tracking-wide">Collections</p>
+</a>
+</div>
+</nav>
+<main class="flex-1">
+<!-- Section Header -->
+<div class="flex items-center justify-between px-4 pt-6 pb-2">
+<h3 class="text-lg font-bold leading-tight tracking-tight">Your Saved Styles</h3>
+<span class="text-xs font-medium text-accent-teal uppercase tracking-wider bg-accent-teal/10 px-2 py-1 rounded">Curated</span>
+</div>
+<!-- ImageGrid (Product Grid) -->
+<div class="grid grid-cols-2 gap-4 p-4">
+<!-- Product Card 1 -->
+<div class="group relative flex flex-col gap-2">
+<div class="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800">
+<div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Modern minimalist linen summer dress in white" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBoGd7HJ-5g0iAkpNMMwO4f-lUrU74MRbJUOka7KEC66ddIvd-rwHmUcVcjCiBp4WpLDOB4mLK6Q1ehl9LIb9xJwfNvtsQeWmwIHU5uANPXmk7Vs0F_F4c29eA5y5qKFamBNSRNcO8LVhVoDO_lTHyl6eK13Fx7vMTCEwU7fmQBZNgknsGF0vRSj9TKNzQ3I0pkPpRqcqqCvFgOzcOQtzXNHwkSDmhxuiLQBBJrx5IUMeFEko8hGOE1xPFa_onvHzeNhcWhObbA_A');">
+</div>
+<button class="absolute top-2 right-2 flex size-8 items-center justify-center rounded-full bg-white/90 dark:bg-black/50 backdrop-blur-sm text-gray-900 dark:text-white shadow-sm hover:bg-red-50 hover:text-red-500 transition-all">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="flex flex-col px-1">
+<p class="text-xs text-gray-500 dark:text-gray-400 font-medium uppercase tracking-tight">Linen Co.</p>
+<p class="text-sm font-semibold leading-snug line-clamp-1">Summer Linen Dress</p>
+<div class="flex items-center justify-between mt-1">
+<p class="text-primary dark:text-accent-blue font-bold text-base">$89.00</p>
+<div class="flex items-center gap-1 text-[10px] text-gray-400">
+<span class="material-symbols-outlined text-[12px] fill-icon text-yellow-400">star</span>
+<span>4.8</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group relative flex flex-col gap-2">
+<div class="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800">
+<div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Elegant leather crossbody bag in tan brown" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBBjaqkj3TIaawXbJoE_9NMa5O5u9xwoPb025_ycX1olImTe-h6lFxSefzxrBfUcGhNIl8lPszXz7rui3egV06Y9M0-yf2LonlpAHK6I-_qqF7adQrQiQpthNGfHPV6hRAucpDC1Z7L7ocbEQfUFwJ1T-oUNTjX93OIPsSFmmyDoy0ZLNO-DWss0kJxrwIUtbmjNvRgcdCVHqGUALL2SgMhF3R6mgIrfFu_aSbYuyVWMe-jWq9rzg934UUm-17zCU4uMhcPhrCEew');">
+</div>
+<button class="absolute top-2 right-2 flex size-8 items-center justify-center rounded-full bg-white/90 dark:bg-black/50 backdrop-blur-sm text-gray-900 dark:text-white shadow-sm hover:bg-red-50 hover:text-red-500 transition-all">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="flex flex-col px-1">
+<p class="text-xs text-gray-500 dark:text-gray-400 font-medium uppercase tracking-tight">Vogue</p>
+<p class="text-sm font-semibold leading-snug line-clamp-1">Leather Crossbody</p>
+<div class="flex items-center justify-between mt-1">
+<p class="text-primary dark:text-accent-blue font-bold text-base">$124.00</p>
+<div class="flex items-center gap-1 text-[10px] text-gray-400">
+<span class="material-symbols-outlined text-[12px] fill-icon text-yellow-400">star</span>
+<span>4.9</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group relative flex flex-col gap-2">
+<div class="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800">
+<div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Classic canvas sneakers in off-white" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBAZAqd5OncwUisLXxjCONHxmJ2uT-DkDOs0_LdJlsVIk7n1BloEXMTTRjOHLdClaKhLrajcPq2zn6m2eAeVe7LXXc79QjGPl2Rvu9uK7n3Ne7ab1Rf0jq34b2E6E2Gy9e5hTUQ-RcbXXdPFG9-NF-RlzOqhYqYF-WrrE28-uPdV_7C0icdQXFVgMR_7lXYaQ8GtN4hiWDpDEHh-JaQ5z__hxh-caLpIv3xVyW4edV19TBzHB0AnW2jhM6Vob0WSQoW5AeYCqbq3Q');">
+</div>
+<button class="absolute top-2 right-2 flex size-8 items-center justify-center rounded-full bg-white/90 dark:bg-black/50 backdrop-blur-sm text-gray-900 dark:text-white shadow-sm hover:bg-red-50 hover:text-red-500 transition-all">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="flex flex-col px-1">
+<p class="text-xs text-gray-500 dark:text-gray-400 font-medium uppercase tracking-tight">StepUp</p>
+<p class="text-sm font-semibold leading-snug line-clamp-1">Canvas Sneakers</p>
+<div class="flex items-center justify-between mt-1">
+<p class="text-primary dark:text-accent-blue font-bold text-base">$65.00</p>
+<div class="flex items-center gap-1 text-[10px] text-gray-400">
+<span class="material-symbols-outlined text-[12px] fill-icon text-yellow-400">star</span>
+<span>4.7</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group relative flex flex-col gap-2">
+<div class="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800">
+<div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Sleek minimalist analog watch with black strap" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAPpBFwu-R8WLRMH7ffL1aNT8oH7zXxLz2vjxCN3QlBe12KmQBhk-AgZ1-kWUrZd7SPMuiMZqxR-iBcr-Ks7QhxInYmJGW-iyBf7gZAUuZSO_q1eDijgICS7wpTntWTGmt9tOA6wnf5TxOX8d8JdJYfkAATFpBgdmsQFM0y9QXpho71cRb8HYbkdaANtnbtD46I53c1-XJ1bKxxA9pCCEQbQY7qWvvQgKaxM06kSpSiQnA_baZrP_dhNEo-JGIo_smnfXTOwEWeJw');">
+</div>
+<button class="absolute top-2 right-2 flex size-8 items-center justify-center rounded-full bg-white/90 dark:bg-black/50 backdrop-blur-sm text-gray-900 dark:text-white shadow-sm hover:bg-red-50 hover:text-red-500 transition-all">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="flex flex-col px-1">
+<p class="text-xs text-gray-500 dark:text-gray-400 font-medium uppercase tracking-tight">Onyx</p>
+<p class="text-sm font-semibold leading-snug line-clamp-1">Minimalist Watch</p>
+<div class="flex items-center justify-between mt-1">
+<p class="text-primary dark:text-accent-blue font-bold text-base">$210.00</p>
+<div class="flex items-center gap-1 text-[10px] text-gray-400">
+<span class="material-symbols-outlined text-[12px] fill-icon text-yellow-400">star</span>
+<span>5.0</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ListItem: Collections preview -->
+<div class="mt-6">
+<h3 class="text-[#0d101b] dark:text-white text-lg font-bold leading-tight tracking-tight px-4 pb-2">Your Collections</h3>
+<div class="flex items-center gap-4 bg-white dark:bg-background-dark px-4 min-h-[72px] py-2 justify-between border-b border-gray-50 dark:border-gray-800">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14 ring-2 ring-accent-teal/10" data-alt="Grid collage of summer fashion items" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDcuPLM3yqPBTpdKXhfYLPdJuXeyA1vninTwi2k_FbYN4HhG3_G8WIOtXwgaCMzI-tQ1Zqj3Js3a8ig3XQNvgTOYx2cvpX12ATJiuzzwaAyxI8ve8SncF6AmR6QKTZeCFZYlLkfeX2LavvB8yKHC7hOx1AAajwf44e0ot8QDL76HbF666tZ2xWEaPqML8NjIwzgdOkSi-cbqImBQzEkdhD0EWYxmzJNVelcuzbfxb0YdmIG4pWSyVkmZIRoscJbNg5aa-SgRVIBGg");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-[#0d101b] dark:text-white text-base font-semibold leading-normal line-clamp-1">Summer Essentials</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal line-clamp-2">12 items</p>
+</div>
+</div>
+<div class="shrink-0">
+<div class="text-gray-400 flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white dark:bg-background-dark px-4 min-h-[72px] py-2 justify-between border-b border-gray-50 dark:border-gray-800">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14 ring-2 ring-primary/10" data-alt="Collection of minimalist home office accessories" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAHCDwRWx_H1zzfNYiQih4xTLcAjf8Hj-o_VfnzqG2y7rhQ3gyngurD6OccKQxX-0RZfkZEZ3idE38jtCrQotCTrILlZqPJpr504w1m86UO0O07XUvPHRQtqHQ_32dD4qY0KLBFUnUSCOHvP23d7fsE09n92JvPI86hzAH-M4ufZEwwlarfVg0eldKiKWjLjYa5FHd00dGpJycKlOR3ZNfQZMicneEDeJjhVof6F9IWDOdogXJqveLOLYMkz7odlvaXsnJnEsrh1Q");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-[#0d101b] dark:text-white text-base font-semibold leading-normal line-clamp-1">Office Upgrade</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal line-clamp-2">5 items</p>
+</div>
+</div>
+<div class="shrink-0">
+<div class="text-gray-400 flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Spacer for bottom nav if it existed -->
+<div class="h-24"></div>
+</main>
+<!-- (Optional Content: What a clean empty state might look like if hidden/toggled) -->
+<!-- 
+        <div class="flex-1 flex flex-col items-center justify-center px-8 py-12 text-center">
+            <div class="size-24 bg-primary/5 dark:bg-primary/20 rounded-full flex items-center justify-center mb-6">
+                <span class="material-symbols-outlined text-5xl text-primary/40">favorite</span>
+            </div>
+            <h2 class="text-xl font-bold mb-2">No favorites yet</h2>
+            <p class="text-gray-500 dark:text-gray-400 text-sm mb-8">Items you favorite will appear here for easy access and price alerts.</p>
+            <button class="w-full bg-primary py-4 text-white font-bold rounded-xl shadow-lg shadow-primary/20 active:scale-95 transition-transform">
+                Explore Products
+            </button>
+        </div>
+        -->
+<!-- Bottom Tab Bar (iOS style) -->
+<footer class="fixed bottom-0 max-w-[430px] w-full bg-white/90 dark:bg-background-dark/90 backdrop-blur-xl border-t border-gray-100 dark:border-gray-800 px-6 py-3 flex justify-between items-center">
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] font-medium">Search</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined fill-icon">favorite</span>
+<span class="text-[10px] font-bold">Wishlist</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="text-[10px] font-medium">Cart</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</footer>
+</div>
+</body></html>

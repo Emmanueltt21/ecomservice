@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Details - ecomservice</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1337ec",
+                        "accent-teal": "#008080",
+                        "soft-blue": "#e8ebfd",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101322",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#0d101b] dark:text-white transition-colors duration-300">
+<div class="relative flex min-h-screen w-full flex-col max-w-[430px] mx-auto bg-white dark:bg-[#161a2e] shadow-2xl overflow-x-hidden pb-24">
+<!-- Top Navigation Bar -->
+<div class="sticky top-0 z-50 flex items-center bg-white/80 dark:bg-[#161a2e]/80 backdrop-blur-md p-4 justify-between">
+<button class="flex size-10 items-center justify-center rounded-full bg-background-light dark:bg-background-dark/50">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios_new</span>
+</button>
+<div class="flex gap-2">
+<button class="flex size-10 items-center justify-center rounded-full bg-background-light dark:bg-background-dark/50">
+<span class="material-symbols-outlined text-2xl">share</span>
+</button>
+<button class="flex size-10 items-center justify-center rounded-full bg-background-light dark:bg-background-dark/50">
+<span class="material-symbols-outlined text-2xl">shopping_bag</span>
+</button>
+</div>
+</div>
+<!-- Image Gallery -->
+<div class="px-4 py-2">
+<div class="relative group">
+<div class="bg-cover bg-center flex flex-col justify-end overflow-hidden bg-gray-100 dark:bg-gray-800 rounded-xl min-h-96" data-alt="High-resolution minimal white ergonomic noise-canceling headphones" style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 40%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBS33XCqtu9vi0BqQWj7vVcYuzuRZJXb_IjE_1WGKrhC2LCl_SnNEPrvvMR-QlP5lpCC_lzedYAN2FxzTPChaRiRiRnVk8TTlK4tWEr80F8uYRK27cEsPWlibKKFKPs1yUthMhgj4IUt8NQtJneEFIUCDwIV0_gDbcepKdmrIOF8fZmyzQGURBGZLzYoKGDI2sKQI07_7UIzHPfFowiU8_UBj6FqIGQsj1Ip7aG_9kx9p_S2iF-xeLOwV9DQp3I1YsSw2yIkCWARg");'>
+<div class="flex justify-center gap-2 p-5">
+<div class="h-1.5 w-6 rounded-full bg-primary"></div>
+<div class="size-1.5 rounded-full bg-white opacity-50"></div>
+<div class="size-1.5 rounded-full bg-white opacity-50"></div>
+<div class="size-1.5 rounded-full bg-white opacity-50"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Info Section -->
+<div class="px-4 pt-6">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-xs font-bold uppercase tracking-widest text-primary/70 dark:text-primary/90">Premium Audio</span>
+<h1 class="text-[#0d101b] dark:text-white tracking-tight text-3xl font-bold leading-tight mt-1">Studio Wireless Pro</h1>
+</div>
+<div class="bg-accent-teal/10 dark:bg-accent-teal/20 px-3 py-1 rounded-lg">
+<p class="text-accent-teal text-xl font-bold leading-normal">$249.00</p>
+</div>
+</div>
+<!-- Rating Summary -->
+<div class="flex items-center gap-4 mt-4 pb-4 border-b border-gray-100 dark:border-gray-800">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-accent-teal filled-icon" style="font-size: 20px;">star</span>
+<span class="text-lg font-bold text-[#0d101b] dark:text-white">4.9</span>
+</div>
+<div class="h-4 w-[1px] bg-gray-300 dark:bg-gray-700"></div>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-medium">124 Reviews</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-medium ml-auto">98% Recommendation</p>
+</div>
+</div>
+<!-- Variant Selector -->
+<div class="px-4 pt-6">
+<p class="text-[#0d101b] dark:text-white text-sm font-bold mb-3">Available Colors</p>
+<div class="flex gap-3">
+<div class="p-1 rounded-full border-2 border-primary">
+<div class="size-8 rounded-full bg-[#1c1c1c]"></div>
+</div>
+<div class="p-1 rounded-full border-2 border-transparent">
+<div class="size-8 rounded-full bg-[#e5e5e5]"></div>
+</div>
+<div class="p-1 rounded-full border-2 border-transparent">
+<div class="size-8 rounded-full bg-accent-teal"></div>
+</div>
+</div>
+</div>
+<!-- Expandable Description Section -->
+<div class="px-4 pt-8">
+<div class="flex justify-between items-center mb-3">
+<h3 class="text-[#0d101b] dark:text-white text-lg font-bold">Description</h3>
+<span class="material-symbols-outlined text-gray-400">keyboard_arrow_up</span>
+</div>
+<div class="relative">
+<p class="text-gray-600 dark:text-gray-400 text-base font-normal leading-relaxed">
+                    Experience unmatched sound quality with the Studio Wireless Pro. Featuring active noise cancellation, 40-hour battery life, and spatial audio support. Designed for professionals who demand clarity...
+                </p>
+<button class="text-primary font-semibold text-sm mt-2 flex items-center gap-1">
+                    Read More
+                </button>
+</div>
+</div>
+<!-- Detailed Ratings (Hidden in collapsed view, but shown here for layout) -->
+<div class="p-4 mt-6 bg-background-light dark:bg-background-dark/30 rounded-xl mx-4">
+<div class="flex flex-wrap gap-x-8 gap-y-6">
+<div class="flex flex-col gap-2">
+<p class="text-[#0d101b] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">4.9</p>
+<div class="flex gap-0.5">
+<span class="material-symbols-outlined text-primary filled-icon" style="font-size: 18px;">star</span>
+<span class="material-symbols-outlined text-primary filled-icon" style="font-size: 18px;">star</span>
+<span class="material-symbols-outlined text-primary filled-icon" style="font-size: 18px;">star</span>
+<span class="material-symbols-outlined text-primary filled-icon" style="font-size: 18px;">star</span>
+<span class="material-symbols-outlined text-primary filled-icon" style="font-size: 18px;">star</span>
+</div>
+</div>
+<div class="grid min-w-[140px] flex-1 grid-cols-[20px_1fr_40px] items-center gap-y-2">
+<p class="text-[#0d101b] dark:text-white text-xs font-normal">5</p>
+<div class="flex h-1.5 flex-1 overflow-hidden rounded-full bg-gray-200 dark:bg-gray-700">
+<div class="rounded-full bg-primary" style="width: 90%;"></div>
+</div>
+<p class="text-gray-500 text-xs font-normal text-right">90%</p>
+<p class="text-[#0d101b] dark:text-white text-xs font-normal">4</p>
+<div class="flex h-1.5 flex-1 overflow-hidden rounded-full bg-gray-200 dark:bg-gray-700">
+<div class="rounded-full bg-primary" style="width: 8%;"></div>
+</div>
+<p class="text-gray-500 text-xs font-normal text-right">8%</p>
+</div>
+</div>
+</div>
+<!-- Sticky Footer -->
+<div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] p-4 bg-white/90 dark:bg-[#161a2e]/90 backdrop-blur-xl border-t border-gray-100 dark:border-gray-800 flex items-center gap-4 z-50 pb-8">
+<button class="flex size-14 items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 text-[#0d101b] dark:text-white">
+<span class="material-symbols-outlined text-2xl">favorite</span>
+</button>
+<button class="flex-1 h-14 bg-primary text-white rounded-xl font-bold text-lg flex items-center justify-center gap-2 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">shopping_cart</span>
+                Add to Cart
+            </button>
+</div>
+</div>
+</body></html>

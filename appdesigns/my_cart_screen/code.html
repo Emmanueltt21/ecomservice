@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Cart - ecomservice</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1337ec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101322",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#0d101b] dark:text-white antialiased">
+<!-- Wrapper for the mobile screen -->
+<div class="relative flex min-h-screen w-full max-w-[430px] mx-auto flex-col bg-background-light dark:bg-background-dark shadow-2xl overflow-x-hidden">
+<!-- TopAppBar (iOS Style) -->
+<header class="sticky top-0 z-20 flex items-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 py-4 justify-between border-b border-gray-200 dark:border-gray-800">
+<div class="flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios_new</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">My Cart</h2>
+<div class="flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-2xl text-red-500">delete_sweep</span>
+</div>
+</header>
+<!-- Cart Items List -->
+<main class="flex-1 overflow-y-auto px-4 py-6 space-y-4">
+<!-- ListItem 1: Wireless Headphones -->
+<div class="group relative flex items-center gap-4 bg-white dark:bg-[#1a1e36] p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 transition-all active:scale-[0.98]">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-20 shrink-0" data-alt="Modern white wireless over-ear headphones" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAFWqKg1zOuwMp_7ZMrzHNoHeGQCrnX4VKor70DeKnOMY1Io9F6_6Ry4sTb63_wtvviEnUV3IH0yzz-bn_6eTftQxPZbS6d5db6gFAlwteOFgYLVjRHVHycc84Z9bAn7JHO8K_e-N2ax5X4kzQKQB96AQ6RHtKHoUmDkffm1EuPJ6pYCJkBpUPWo6hDYAQUUjgaJuYG_ItSNLi6veCzmmFPVrBL_kN1OKppAR_b8pNCeZiMhirqzi9f-s5r5gOjSQXGjT1OnsoOEw");'>
+</div>
+<div class="flex flex-col flex-1 justify-between py-1">
+<div class="flex justify-between items-start">
+<p class="text-base font-semibold leading-tight line-clamp-1">Wireless Headphones Pro</p>
+</div>
+<p class="text-primary dark:text-blue-400 text-base font-bold mt-1">$199.00</p>
+<div class="flex items-center justify-between mt-2">
+<!-- Quantity Selector -->
+<div class="flex items-center gap-3 bg-background-light dark:bg-gray-800 rounded-full px-2 py-1">
+<button class="flex h-7 w-7 items-center justify-center rounded-full bg-white dark:bg-gray-700 text-gray-600 dark:text-white shadow-sm hover:bg-gray-50 active:scale-90 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-lg">remove</span>
+</button>
+<span class="text-sm font-bold min-w-[1.25rem] text-center">1</span>
+<button class="flex h-7 w-7 items-center justify-center rounded-full bg-white dark:bg-gray-700 text-gray-600 dark:text-white shadow-sm hover:bg-gray-50 active:scale-90 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-lg text-primary dark:text-blue-400">add</span>
+</button>
+</div>
+<button class="text-gray-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- ListItem 2: Minimalist Watch -->
+<div class="group relative flex items-center gap-4 bg-white dark:bg-[#1a1e36] p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 transition-all active:scale-[0.98]">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-20 shrink-0" data-alt="Minimalist black leather watch on white background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCSsK_7wkkZPccgTH48SpSuQkCpAFhmQvFWEDtr76enMdrdeufsdcFWxqb6V48p4TTR0gdbnnSIXxqmH46DYjndxnlgPYgttWicQSWJE5tQaF_LQS6Qi7fA9o80bW08NsuZWBMsB4TZy4oYxgRqcs4QP1Lb5aTRnE6PPb1C9FFDV17GxjZ3jDcL84sMcaQ7aOhsdMhWevkv1HPuSRCKsmlL7UPWHfsO8Iqxq2BM-UU1VlIEVeNg4y7ORX9gYCk-ZKTUqLMkGH-8yg");'>
+</div>
+<div class="flex flex-col flex-1 justify-between py-1">
+<div class="flex justify-between items-start">
+<p class="text-base font-semibold leading-tight line-clamp-1">Minimalist Black Watch</p>
+</div>
+<p class="text-primary dark:text-blue-400 text-base font-bold mt-1">$150.00</p>
+<div class="flex items-center justify-between mt-2">
+<div class="flex items-center gap-3 bg-background-light dark:bg-gray-800 rounded-full px-2 py-1">
+<button class="flex h-7 w-7 items-center justify-center rounded-full bg-white dark:bg-gray-700 text-gray-600 dark:text-white shadow-sm hover:bg-gray-50 active:scale-90 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-lg">remove</span>
+</button>
+<span class="text-sm font-bold min-w-[1.25rem] text-center">1</span>
+<button class="flex h-7 w-7 items-center justify-center rounded-full bg-white dark:bg-gray-700 text-gray-600 dark:text-white shadow-sm hover:bg-gray-50 active:scale-90 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-lg text-primary dark:text-blue-400">add</span>
+</button>
+</div>
+<button class="text-gray-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- ListItem 3: Leather Wallet -->
+<div class="group relative flex items-center gap-4 bg-white dark:bg-[#1a1e36] p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 transition-all active:scale-[0.98]">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-20 shrink-0" data-alt="Handcrafted brown leather wallet" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBBEg-diZWCjPgJVrKMWyzhufEpJVDX2TF0LpbrWvTxzOySFnhJwrkI6T1TUXpnUYAIxVLD0Bd2QxoUIpodmLaqZM89itRGuI7eYO9XWIEXikieQSqgum8YIXQUzLG0I58Mcki4MPLN1yNgitQNExgIzo9jR-ZzbiUU8509RGx8DcHRwe4OBbRVVBZi55SwjprWixstarfWCOge9BgrgaX1sO4OxN1pcCUJ6cUmrkJ84N8rqUwcuwpQlLnn0dokL1VBKTbkcF6yzQ");'>
+</div>
+<div class="flex flex-col flex-1 justify-between py-1">
+<div class="flex justify-between items-start">
+<p class="text-base font-semibold leading-tight line-clamp-1">Classic Leather Wallet</p>
+</div>
+<p class="text-primary dark:text-blue-400 text-base font-bold mt-1">$45.00</p>
+<div class="flex items-center justify-between mt-2">
+<div class="flex items-center gap-3 bg-background-light dark:bg-gray-800 rounded-full px-2 py-1">
+<button class="flex h-7 w-7 items-center justify-center rounded-full bg-white dark:bg-gray-700 text-gray-600 dark:text-white shadow-sm hover:bg-gray-50 active:scale-90 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-lg">remove</span>
+</button>
+<span class="text-sm font-bold min-w-[1.25rem] text-center">2</span>
+<button class="flex h-7 w-7 items-center justify-center rounded-full bg-white dark:bg-gray-700 text-gray-600 dark:text-white shadow-sm hover:bg-gray-50 active:scale-90 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-lg text-primary dark:text-blue-400">add</span>
+</button>
+</div>
+<button class="text-gray-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Promotion Code Section -->
+<div class="mt-8 px-2">
+<div class="flex gap-2">
+<input class="flex-1 bg-white dark:bg-[#1a1e36] border-gray-200 dark:border-gray-700 rounded-lg text-sm px-4 py-3 focus:ring-primary focus:border-primary" placeholder="Promo code" type="text"/>
+<button class="bg-primary/10 text-primary font-bold px-6 py-3 rounded-lg text-sm transition-colors hover:bg-primary hover:text-white">Apply</button>
+</div>
+</div>
+<div class="h-40"></div> <!-- Spacer for fixed footer -->
+</main>
+<!-- Checkout Summary Panel (Fixed Bottom) -->
+<footer class="fixed bottom-0 w-full max-w-[430px] bg-white dark:bg-background-dark border-t border-gray-100 dark:border-gray-800 p-6 space-y-4 shadow-[0_-8px_30px_rgb(0,0,0,0.04)] dark:shadow-none rounded-t-xl z-30">
+<!-- DescriptionList -->
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<p class="text-gray-500 dark:text-gray-400 text-sm">Subtotal</p>
+<p class="font-semibold text-sm">$439.00</p>
+</div>
+<div class="flex justify-between items-center">
+<p class="text-gray-500 dark:text-gray-400 text-sm">Shipping</p>
+<p class="text-green-500 font-semibold text-sm">Free</p>
+</div>
+<div class="pt-2 border-t border-dashed border-gray-200 dark:border-gray-700 flex justify-between items-center">
+<p class="text-lg font-bold">Total</p>
+<p class="text-2xl font-black text-primary dark:text-blue-400">$439.00</p>
+</div>
+</div>
+<!-- Primary Action Button -->
+<button class="w-full bg-primary py-4 rounded-xl text-white font-bold text-lg flex items-center justify-center gap-2 hover:opacity-90 active:scale-[0.98] transition-all shadow-lg shadow-primary/20">
+<span>Proceed to Checkout</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<!-- Home Indicator Space (iOS) -->
+<div class="h-4"></div>
+</footer>
+</div>
+<!-- Empty State (Hidden by Default - logic would show this if items array is empty) -->
+<div class="hidden fixed inset-0 z-50 flex flex-col items-center justify-center bg-background-light dark:bg-background-dark p-8 text-center max-w-[430px] mx-auto" id="empty-state">
+<div class="w-64 h-64 mb-8 opacity-40 dark:opacity-20 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-800">
+<span class="material-symbols-outlined text-8xl text-gray-400">shopping_cart</span>
+</div>
+<h3 class="text-2xl font-bold mb-2">Your cart is empty</h3>
+<p class="text-gray-500 dark:text-gray-400 mb-8 max-w-[280px]">Looks like you haven't added anything to your cart yet.</p>
+<button class="bg-primary px-10 py-4 rounded-xl text-white font-bold shadow-lg shadow-primary/25 active:scale-95 transition-all">
+            Shop Now
+        </button>
+</div>
+</body></html>
