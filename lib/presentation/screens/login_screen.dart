@@ -142,7 +142,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           Align(
                             alignment: Alignment.centerRight,
                             child: TextButton(
-                              onPressed: () {},
+                              onPressed: () => context.push(AppRoutes.forgotPassword),
                               child: Text(
                                 l10n.forgotPassword,
                                 style: TextStyle(
@@ -240,7 +240,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                 ),
                                 TextButton(
-                                  onPressed: () {},
+                                  onPressed: () => context.push(AppRoutes.signup),
                                   child: Text(
                                     l10n.signup,
                                     style: TextStyle(

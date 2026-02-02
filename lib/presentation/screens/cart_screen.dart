@@ -7,6 +7,8 @@ import 'package:ecomservics/presentation/blocs/auth_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ecomservics/generated/app_localizations.dart';
 
+import '../routes/app_routes.dart';
+
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
 
@@ -133,16 +135,13 @@ class _CartView extends StatelessWidget {
                              final authState = context.read<AuthBloc>().state;
                              if (authState is AuthAuthenticated) {
                                // Logged in - proceed to checkout
-                               ScaffoldMessenger.of(context).showSnackBar(
-                                 const SnackBar(content: Text('Proceeding to checkout...')),
-                               );
-                               // TODO: Navigate to checkout screen when implemented
+                               context.push(AppRoutes.checkout);
                              } else {
                                // Not logged in - redirect to login
                                ScaffoldMessenger.of(context).showSnackBar(
                                  const SnackBar(content: Text('Please login to checkout')),
                                );
-                               context.go('/login');
+                               context.push(AppRoutes.login);
                              }
                            },
                            child: Text(l10n.buyNow),

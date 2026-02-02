@@ -139,3 +139,55 @@ class ProductListShimmer extends StatelessWidget {
     );
   }
 }
+
+class CategoryListShimmer extends StatelessWidget {
+  const CategoryListShimmer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.separated(
+      padding: const EdgeInsets.all(16),
+      itemCount: 8,
+      separatorBuilder: (context, index) => const Divider(),
+      itemBuilder: (context, index) {
+        return ShimmerLoading(
+          child: ListTile(
+            leading: Container(
+              width: 48,
+              height: 48,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+              ),
+            ),
+            title: Container(
+              width: 150,
+              height: 16,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(4),
+              ),
+            ),
+            trailing: const Icon(Icons.chevron_right, color: Colors.white),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class ProductItemShimmer extends StatelessWidget {
+  const ProductItemShimmer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ShimmerLoading(
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+        ),
+      ),
+    );
+  }
+}

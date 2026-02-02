@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Transaction List - ecomservice</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1337ec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101322",
+                        "success": "#22c55e",
+                        "danger": "#ef4444",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased text-[#0d101b] dark:text-white">
+<div class="relative flex min-h-screen w-full flex-col max-w-[430px] mx-auto bg-white dark:bg-background-dark shadow-2xl">
+<!-- TopAppBar -->
+<div class="sticky top-0 z-20 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined text-[#0d101b] dark:text-white cursor-pointer">arrow_back_ios</span>
+</div>
+<h2 class="text-[#0d101b] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Transaction List</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex items-center justify-center rounded-xl h-12 bg-transparent text-primary gap-2">
+<span class="material-symbols-outlined">tune</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Summary Stats Card -->
+<div class="px-4 pt-2">
+<div class="flex flex-wrap gap-3">
+<div class="flex min-w-[140px] flex-1 flex-col gap-1 rounded-xl p-4 border border-[#cfd3e7] dark:border-gray-700 bg-white dark:bg-gray-900/50">
+<p class="text-[#4c599a] dark:text-gray-400 text-xs font-medium uppercase tracking-wider">Income</p>
+<p class="text-success tracking-tight text-xl font-bold leading-tight">+$4,250.00</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-success text-sm">trending_up</span>
+<p class="text-success text-xs font-medium">+12%</p>
+</div>
+</div>
+<div class="flex min-w-[140px] flex-1 flex-col gap-1 rounded-xl p-4 border border-[#cfd3e7] dark:border-gray-700 bg-white dark:bg-gray-900/50">
+<p class="text-[#4c599a] dark:text-gray-400 text-xs font-medium uppercase tracking-wider">Spending</p>
+<p class="text-danger tracking-tight text-xl font-bold leading-tight">-$1,840.20</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-danger text-sm">trending_down</span>
+<p class="text-danger text-xs font-medium">+5%</p>
+</div>
+</div>
+</div>
+</div>
+<!-- SearchBar -->
+<div class="px-4 py-4">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full">
+<div class="text-[#4c599a] flex border-none bg-background-light dark:bg-gray-800 items-center justify-center pl-4 rounded-l-xl border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#0d101b] dark:text-white focus:outline-0 focus:ring-0 border-none bg-background-light dark:bg-gray-800 focus:border-none h-full placeholder:text-[#4c599a] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search transactions, methods..." value=""/>
+</div>
+</label>
+</div>
+<!-- Transaction List Content -->
+<div class="flex-1 overflow-y-auto pb-8">
+<!-- Section Today -->
+<div class="bg-background-light/30 dark:bg-background-dark/30">
+<h3 class="text-[#4c599a] dark:text-gray-400 text-xs font-bold uppercase tracking-widest px-4 pb-2 pt-4">Today</h3>
+</div>
+<div class="divide-y divide-gray-100 dark:divide-gray-800">
+<!-- List Item: Refund -->
+<div class="flex items-center gap-4 bg-white dark:bg-background-dark px-4 min-h-[80px] py-3 justify-between hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-xl bg-primary/10 shrink-0 size-12">
+<span class="material-symbols-outlined">settings_backup_restore</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-[#0d101b] dark:text-white text-base font-semibold leading-normal line-clamp-1">Refund - Order #8821</p>
+<p class="text-[#4c599a] dark:text-gray-400 text-xs font-normal leading-normal">via Stripe • 02:15 PM</p>
+</div>
+</div>
+<div class="shrink-0 text-right">
+<p class="text-success text-base font-bold leading-normal">+$124.50</p>
+</div>
+</div>
+<!-- List Item: Payment -->
+<div class="flex items-center gap-4 bg-white dark:bg-background-dark px-4 min-h-[80px] py-3 justify-between hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="text-[#0d101b] dark:text-white flex items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 shrink-0 size-12">
+<span class="material-symbols-outlined">shopping_bag</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-[#0d101b] dark:text-white text-base font-semibold leading-normal line-clamp-1">Nike Air Max Store</p>
+<p class="text-[#4c599a] dark:text-gray-400 text-xs font-normal leading-normal">via Apple Pay • 11:45 AM</p>
+</div>
+</div>
+<div class="shrink-0 text-right">
+<p class="text-danger text-base font-bold leading-normal">-$210.00</p>
+</div>
+</div>
+</div>
+<!-- Section Yesterday -->
+<div class="bg-background-light/30 dark:bg-background-dark/30 border-t border-gray-100 dark:border-gray-800">
+<h3 class="text-[#4c599a] dark:text-gray-400 text-xs font-bold uppercase tracking-widest px-4 pb-2 pt-6">Yesterday</h3>
+</div>
+<div class="divide-y divide-gray-100 dark:divide-gray-800">
+<!-- List Item: Wallet Topup -->
+<div class="flex items-center gap-4 bg-white dark:bg-background-dark px-4 min-h-[80px] py-3 justify-between hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="text-success flex items-center justify-center rounded-xl bg-success/10 shrink-0 size-12">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-[#0d101b] dark:text-white text-base font-semibold leading-normal line-clamp-1">Wallet Top-up</p>
+<p class="text-[#4c599a] dark:text-gray-400 text-xs font-normal leading-normal">via MOMO • 09:20 PM</p>
+</div>
+</div>
+<div class="shrink-0 text-right">
+<p class="text-success text-base font-bold leading-normal">+$500.00</p>
+</div>
+</div>
+<!-- List Item: Cashback -->
+<div class="flex items-center gap-4 bg-white dark:bg-background-dark px-4 min-h-[80px] py-3 justify-between hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-xl bg-primary/10 shrink-0 size-12">
+<span class="material-symbols-outlined">redeem</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-[#0d101b] dark:text-white text-base font-semibold leading-normal line-clamp-1">Cashback Bonus</p>
+<p class="text-[#4c599a] dark:text-gray-400 text-xs font-normal leading-normal">via System • 06:10 PM</p>
+</div>
+</div>
+<div class="shrink-0 text-right">
+<p class="text-success text-base font-bold leading-normal">+$15.25</p>
+</div>
+</div>
+<!-- List Item: Payment -->
+<div class="flex items-center gap-4 bg-white dark:bg-background-dark px-4 min-h-[80px] py-3 justify-between hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="text-[#0d101b] dark:text-white flex items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 shrink-0 size-12">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-[#0d101b] dark:text-white text-base font-semibold leading-normal line-clamp-1">Uber Eats</p>
+<p class="text-[#4c599a] dark:text-gray-400 text-xs font-normal leading-normal">via Card • 12:30 PM</p>
+</div>
+</div>
+<div class="shrink-0 text-right">
+<p class="text-danger text-base font-bold leading-normal">-$42.10</p>
+</div>
+</div>
+</div>
+<!-- Section Oct 24 -->
+<div class="bg-background-light/30 dark:bg-background-dark/30 border-t border-gray-100 dark:border-gray-800">
+<h3 class="text-[#4c599a] dark:text-gray-400 text-xs font-bold uppercase tracking-widest px-4 pb-2 pt-6">October 24, 2023</h3>
+</div>
+<div class="divide-y divide-gray-100 dark:divide-gray-800">
+<!-- List Item: Subscription -->
+<div class="flex items-center gap-4 bg-white dark:bg-background-dark px-4 min-h-[80px] py-3 justify-between hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-xl bg-primary/10 shrink-0 size-12">
+<span class="material-symbols-outlined">subscriptions</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-[#0d101b] dark:text-white text-base font-semibold leading-normal line-clamp-1">Netflix Premium</p>
+<p class="text-[#4c599a] dark:text-gray-400 text-xs font-normal leading-normal">via Stripe • 10:00 AM</p>
+</div>
+</div>
+<div class="shrink-0 text-right">
+<p class="text-danger text-base font-bold leading-normal">-$15.99</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Navigation Bar (iOS Style) -->
+<div class="sticky bottom-0 bg-white/90 dark:bg-background-dark/90 backdrop-blur-lg border-t border-gray-100 dark:border-gray-800 px-6 py-3 flex justify-between items-center z-20">
+<div class="flex flex-col items-center gap-1 text-[#4c599a] dark:text-gray-400">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+<span class="text-[10px] font-medium">History</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-[#4c599a] dark:text-gray-400">
+<span class="material-symbols-outlined">wallet</span>
+<span class="text-[10px] font-medium">Wallet</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-[#4c599a] dark:text-gray-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</div>
+<!-- Home Indicator -->
+<div class="h-8 bg-white dark:bg-background-dark flex justify-center items-end pb-2">
+<div class="w-32 h-1 bg-gray-300 dark:bg-gray-700 rounded-full"></div>
+</div>
+</div>
+</body></html>

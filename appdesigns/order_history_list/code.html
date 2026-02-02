@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order History - ecomservice</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1337ec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101322",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#0d101b] dark:text-white transition-colors duration-200">
+<div class="relative flex min-h-screen w-full flex-col max-w-[480px] mx-auto bg-background-light dark:bg-background-dark overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 flex items-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md p-4 pb-2 justify-between border-b border-gray-200 dark:border-gray-800">
+<div class="text-[#0d101b] dark:text-white flex size-12 shrink-0 items-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</div>
+<h2 class="text-[#0d101b] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center font-display">Order History</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 bg-transparent text-[#0d101b] dark:text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</header>
+<!-- Chips / Filters -->
+<div class="flex gap-3 p-4 overflow-x-auto no-scrollbar scroll-smooth">
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary px-5 shadow-sm">
+<p class="text-white text-sm font-semibold leading-normal">All Orders</p>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 px-5 shadow-sm">
+<p class="text-[#4c599a] dark:text-gray-300 text-sm font-medium leading-normal">Delivered</p>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 px-5 shadow-sm">
+<p class="text-[#4c599a] dark:text-gray-300 text-sm font-medium leading-normal">Processing</p>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 px-5 shadow-sm">
+<p class="text-[#4c599a] dark:text-gray-300 text-sm font-medium leading-normal">Cancelled</p>
+</div>
+</div>
+<!-- Orders List -->
+<div class="flex flex-col gap-1 p-4">
+<!-- Delivered Order Card -->
+<div class="mb-4">
+<div class="flex items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-gray-800 p-4 shadow-sm border border-gray-100 dark:border-gray-700 active:scale-[0.98] transition-transform">
+<div class="flex flex-[2_2_0px] flex-col justify-between">
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<p class="text-primary text-base font-bold leading-tight font-display">#ORD-88291</p>
+<span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">Delivered</span>
+</div>
+<p class="text-[#4c599a] dark:text-gray-400 text-xs font-normal leading-normal">Oct 24, 2023 • 3 Items</p>
+<p class="text-[#0d101b] dark:text-white text-lg font-bold leading-tight mt-1 font-display">$124.00</p>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 flex-row-reverse bg-primary/10 dark:bg-primary/20 text-primary pr-2 gap-1 text-xs font-bold leading-normal w-fit mt-3">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="truncate">Order Details</span>
+</button>
+</div>
+<div class="w-24 h-24 bg-center bg-no-repeat bg-cover rounded-lg shrink-0 border border-gray-50 dark:border-gray-700" data-alt="high-end minimalist leather sneakers white" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCxDrJpjkTcuuZlKSWhJB9RAJcs9VsoY2vmep-WzBc5Imtk95GQDbqfLhm4oVpTJsaXrqhpS7FCLau7yoEBD_mXvEXC6o1KRbTh8rZRBdc_NrFEPZeIFl3-EyDe8BQLVc3FGMVmdT9J6J-rcJ3wWXRhdRiQRiaPrdYsXR3tF5jycms1mZ-CZQI1QR1j44NONoDfyO-ujoverq_I9Fo8HFOMd7rtDrKIAshHhWzeEuSN3i_0zQd62xUVY5p16f87hyQLyPFu9rU4gQ");'></div>
+</div>
+</div>
+<!-- Cancelled Order Card -->
+<div class="mb-4">
+<div class="flex items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-gray-800 p-4 shadow-sm border border-gray-100 dark:border-gray-700 active:scale-[0.98] transition-transform">
+<div class="flex flex-[2_2_0px] flex-col justify-between">
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<p class="text-primary text-base font-bold leading-tight font-display">#ORD-88245</p>
+<span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400">Cancelled</span>
+</div>
+<p class="text-[#4c599a] dark:text-gray-400 text-xs font-normal leading-normal">Oct 18, 2023 • 1 Item</p>
+<p class="text-[#0d101b] dark:text-white text-lg font-bold leading-tight mt-1 font-display">$56.50</p>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 flex-row-reverse bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 pr-2 gap-1 text-xs font-bold leading-normal w-fit mt-3">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="truncate">Order Details</span>
+</button>
+</div>
+<div class="w-24 h-24 bg-center bg-no-repeat bg-cover rounded-lg shrink-0 border border-gray-50 dark:border-gray-700" data-alt="black designer smartwatch on white background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC1Y_AKFs6QnTbIFn1QC0LOiXigAqXirjm-NUfs_fEtGLGThJAjhzXNEyYW_a22RTPjXo7tiqJEmCojwXVSkajK5aV86PUOVX658boJRLxhS9U0jNidUteAy_Rpyl1JbgKgwY99WFI-FUNbqgt9jTXysDNGJ2i-70B9J6lezl0F-d9IqjlUdPef6HiVnkIosWHt_kT6BF6HS8m9d2-Lupi0zWXEsB2kQzng2F0rCujQSP_xXST4vdvxqUtIM_xr6V-y1iPah3Iavw");'></div>
+</div>
+</div>
+<!-- Pending Order Card -->
+<div class="mb-4">
+<div class="flex items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-gray-800 p-4 shadow-sm border border-gray-100 dark:border-gray-700 active:scale-[0.98] transition-transform">
+<div class="flex flex-[2_2_0px] flex-col justify-between">
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<p class="text-primary text-base font-bold leading-tight font-display">#ORD-88190</p>
+<span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">Processing</span>
+</div>
+<p class="text-[#4c599a] dark:text-gray-400 text-xs font-normal leading-normal">Oct 12, 2023 • 2 Items</p>
+<p class="text-[#0d101b] dark:text-white text-lg font-bold leading-tight mt-1 font-display">$210.00</p>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 flex-row-reverse bg-primary/10 dark:bg-primary/20 text-primary pr-2 gap-1 text-xs font-bold leading-normal w-fit mt-3">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="truncate">Track Order</span>
+</button>
+</div>
+<div class="w-24 h-24 bg-center bg-no-repeat bg-cover rounded-lg shrink-0 border border-gray-50 dark:border-gray-700" data-alt="noise cancelling wireless headphones" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDOvtE4Ap6oyqEdlqXKLizjhJGIuLf_uGfy7jeIe1r9P1WkuZ61IQKt2z2wsF0KxbQwBUXCuhW0ISZmhbGMX2b2UI7X8tp3E1fveQ9nzJR_3CLz6Effl9BXBKDqGy3_kgpBPPHV2jfHPTXN0cc13eAqiswcNV_JotpZ8cfS3hektiGcy-qP_XvK0SFX0Sz5cw_3IKK_HmSCymHw3eXvhbiSqsoBcdT5vtZVRCVJwy3OMg_5kemKIXjXj6hnOGeAaaqIGOCWhP7vsw");'></div>
+</div>
+</div>
+<!-- Delivered Order Card 2 -->
+<div class="mb-4">
+<div class="flex items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-gray-800 p-4 shadow-sm border border-gray-100 dark:border-gray-700 active:scale-[0.98] transition-transform">
+<div class="flex flex-[2_2_0px] flex-col justify-between">
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<p class="text-primary text-base font-bold leading-tight font-display">#ORD-88002</p>
+<span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">Delivered</span>
+</div>
+<p class="text-[#4c599a] dark:text-gray-400 text-xs font-normal leading-normal">Sep 29, 2023 • 4 Items</p>
+<p class="text-[#0d101b] dark:text-white text-lg font-bold leading-tight mt-1 font-display">$340.99</p>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 flex-row-reverse bg-primary/10 dark:bg-primary/20 text-primary pr-2 gap-1 text-xs font-bold leading-normal w-fit mt-3">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="truncate">Order Details</span>
+</button>
+</div>
+<div class="w-24 h-24 bg-center bg-no-repeat bg-cover rounded-lg shrink-0 border border-gray-50 dark:border-gray-700" data-alt="professional mirrorless camera with lens" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBTH17g7YenLWD7MsASpUfVZeBi6eyVMP34TqGlI3K-U2LsfeJsO_UXOT_nQfx7xxfijSoraefK3bx3e3xZZNmlxicDLWlapR2ul1agaQeJByTkuYTPsyTy6nTAgOem6Lu8Qu2ahYFo5NocEUbBQY68fYlRRzNuX-KvJww2p-6Jc29yOg3Gr0OL871zQAxbD_fbrnNUoTiUjXv1zro5_sQHPE3vF1gQmL2-6FNsb1GTt-NE0cqJ9ZnzkKJHdjPWnf8AK538h83O8A");'></div>
+</div>
+</div>
+</div>
+<!-- Pagination or Load More (Subtle) -->
+<div class="p-6 flex justify-center">
+<button class="text-primary font-semibold text-sm flex items-center gap-1 active:opacity-60">
+                Load more history
+                <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+<div class="h-20 bg-transparent"></div>
+</div>
+</body></html>

@@ -178,7 +178,10 @@ class _HomeView extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(l10n.categories, style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold)),
-                              Text('See All', style: theme.textTheme.bodyMedium?.copyWith(color: theme.primaryColor, fontWeight: FontWeight.bold)),
+                              GestureDetector(
+                                onTap: () => context.push(AppRoutes.allCategories),
+                                child: Text('See All', style: theme.textTheme.bodyMedium?.copyWith(color: theme.primaryColor, fontWeight: FontWeight.bold)),
+                              ),
                             ],
                           ),
                         ),
@@ -207,7 +210,10 @@ class _HomeView extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(l10n.trending, style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold)),
-                                Text(l10n.viewAll, style: theme.textTheme.bodyMedium?.copyWith(color: theme.primaryColor, fontWeight: FontWeight.bold)),
+                                GestureDetector(
+                                  onTap: () => context.push(AppRoutes.allProducts),
+                                  child: Text(l10n.viewAll, style: theme.textTheme.bodyMedium?.copyWith(color: theme.primaryColor, fontWeight: FontWeight.bold)),
+                                ),
                               ],
                             ),
                           ),

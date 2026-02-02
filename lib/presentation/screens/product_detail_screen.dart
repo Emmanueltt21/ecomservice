@@ -7,7 +7,10 @@ import 'package:ecomservics/presentation/blocs/product_bloc.dart';
 import 'package:ecomservics/presentation/blocs/cart_bloc.dart';
 import 'package:ecomservics/presentation/blocs/favorite_bloc.dart';
 import 'package:ecomservics/presentation/widgets/product_detail_shimmer.dart';
+import 'package:ecomservics/presentation/blocs/home_bloc.dart';
+import 'package:ecomservics/presentation/widgets/product_card.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ecomservics/presentation/routes/app_routes.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   final String productId;
@@ -16,8 +19,15 @@ class ProductDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => GetIt.I<ProductBloc>()..add(GetProductDetail(productId)),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => GetIt.I<ProductBloc>()..add(GetProductDetail(productId)),
+        ),
+        BlocProvider(
+          create: (context) => GetIt.I<HomeBloc>()..add(GetHomeData()),
+        ),
+      ],
       child: const _ProductDetailView(),
     );
   }
@@ -392,6 +402,8 @@ class _ProductDetailViewState extends State<_ProductDetailView> {
                                 ),
                               ),
 
+                              const SizedBox(height: 24),
+                              _buildRelatedProducts(context),
                               const SizedBox(height: 100), // Space for sticky footer
                             ],
                           ),
@@ -478,6 +490,50 @@ class _ProductDetailViewState extends State<_ProductDetailView> {
           return const SizedBox.shrink();
         },
       ),
+    );
+  }
+
+  Widget _buildRelatedProducts(BuildContext context) {
+    final theme = Theme.of(context);
+    
+    return BlocBuilder<HomeBloc, HomeState>(
+      builder: (context, state) {
+        if (state is HomeLoaded && state.trendingProducts.isNotEmpty) {
+          final relatedProducts = state.trendingProducts.take(4).toList();
+          
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Related Products',
+                style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 16),
+              SizedBox(
+                height: 260,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: relatedProducts.length,
+                  separatorBuilder: (context, index) => const SizedBox(width: 16),
+                  itemBuilder: (context, index) {
+                    final product = relatedProducts[index];
+                    return SizedBox(
+                      width: 160,
+                      child: ProductCard(
+                        product: product,
+                        onTap: () {
+                          context.pushReplacement('${AppRoutes.home}/product/${product.id}');
+                        },
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          );
+        }
+        return const SizedBox.shrink();
+      },
     );
   }
 }

@@ -23,6 +23,7 @@ import '../../presentation/blocs/language_bloc.dart';
 import '../../presentation/blocs/product_bloc.dart';
 import '../../presentation/blocs/profile_bloc.dart';
 import '../../presentation/blocs/theme_bloc.dart';
+import '../../presentation/blocs/all_products_bloc.dart';
 
 final sl = GetIt.instance;
 
@@ -60,5 +61,6 @@ Future<void> init() async {
   sl.registerLazySingleton(() => FavoriteBloc(sl()));
   sl.registerFactory(() => HomeBloc(getCategoriesUseCase: sl(), getProductsUseCase: sl()));
   sl.registerFactory(() => ProductBloc(sl()));
+  sl.registerFactory(() => AllProductsBloc(sl()));
   sl.registerFactory(() => ProfileBloc());
 }

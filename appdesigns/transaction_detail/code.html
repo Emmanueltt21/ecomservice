@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Transaction Detail - ecomservice</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1337ec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101322",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .receipt-shadow {
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+        .notch-left, .notch-right {
+            position: absolute;
+            bottom: -10px;
+            width: 20px;
+            height: 20px;
+            background: #f6f6f8; /* Matches background-light */
+            border-radius: 50%;
+        }
+        .dark .notch-left, .dark .notch-right {
+            background: #101322; /* Matches background-dark */
+        }
+        .notch-left { left: -10px; }
+        .notch-right { right: -10px; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#0d101b] dark:text-white transition-colors duration-300">
+<div class="relative flex h-auto min-h-screen w-full flex-col max-w-[430px] mx-auto overflow-x-hidden">
+<!-- TopAppBar -->
+<div class="flex items-center p-4 pb-2 justify-between sticky top-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md z-50">
+<button class="text-primary flex size-10 shrink-0 items-center justify-center rounded-full bg-white dark:bg-white/10 receipt-shadow">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<h2 class="text-[#0d101b] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-10">Transaction Detail</h2>
+</div>
+<div class="flex flex-col items-center px-6 pt-8 pb-4">
+<!-- HeadlineText -->
+<div class="flex flex-col items-center w-full">
+<div class="bg-primary/10 p-4 rounded-full mb-4">
+<span class="material-symbols-outlined text-primary text-4xl">check_circle</span>
+</div>
+<h1 class="text-[#0d101b] dark:text-white tracking-light text-[40px] font-bold leading-tight text-center">$142.50</h1>
+<!-- MetaText -->
+<p class="text-primary text-sm font-semibold uppercase tracking-wider pt-1 px-4 text-center">Payment Successful</p>
+</div>
+</div>
+<!-- Receipt Card -->
+<div class="px-6 mb-8">
+<div class="bg-white dark:bg-[#1c1f33] rounded-2xl p-6 receipt-shadow relative overflow-hidden border border-gray-100 dark:border-white/5">
+<div class="flex flex-col gap-4">
+<!-- SectionHeader -->
+<h3 class="text-[#0d101b] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] border-b border-dashed border-gray-200 dark:border-white/10 pb-4">Transaction Details</h3>
+<!-- Metadata Rows -->
+<div class="flex flex-col gap-3">
+<div class="flex justify-between items-center text-sm">
+<span class="text-gray-500 dark:text-gray-400">Transaction ID</span>
+<span class="font-medium text-[#0d101b] dark:text-white">#TXN-8829-001</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-gray-500 dark:text-gray-400">Reference Number</span>
+<span class="font-medium text-[#0d101b] dark:text-white">REF02913445</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-gray-500 dark:text-gray-400">Date &amp; Time</span>
+<span class="font-medium text-[#0d101b] dark:text-white">Oct 24, 2023, 10:30 AM</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-gray-500 dark:text-gray-400">Payment Method</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">credit_card</span>
+<span class="font-medium text-[#0d101b] dark:text-white">Visa •••• 4242</span>
+</div>
+</div>
+</div>
+<!-- SectionHeader -->
+<h3 class="text-[#0d101b] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] pt-4">Order Summary</h3>
+<!-- ListItem components for products -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-3 py-3 justify-between">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-12" data-alt="Professional grade minimalist studio headphones" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCBbWOzkRpTOURLyqJpZCkEYI8kFt-wFxmeN4gC-En9P_HJd11km-BtY7oRpzSpqVymnhWL_UKJuYioqBjb7FBD-Yg-bgMwOLtGeTsXSITr3X4wjAlcKs8AUtNbXsn-9inHq326SKzeVI-UqCAuP-psU__E_8q2rkpsATd5HN6KscUKh61QygW-5Ye_W4WQJJnjUyTri-vaQ8D0VcVZQJtJ6oFPP-1Qoh9V-gQWwNqLJVCRbGMtzqSseaqFH6qM9YuCKe2tfQInCQ");'></div>
+<div class="flex flex-col">
+<p class="text-[#0d101b] dark:text-white text-sm font-medium leading-tight">Pro Wireless 2.0</p>
+<p class="text-gray-500 dark:text-gray-400 text-xs">Qty: 1</p>
+</div>
+</div>
+<div class="shrink-0"><p class="text-[#0d101b] dark:text-white text-sm font-medium">$125.00</p></div>
+</div>
+<div class="flex items-center gap-3 py-3 justify-between">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-12" data-alt="Sleek black protective phone case" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBIxSyIuWR5EXc3C4A8Kyv5alhWE9rlFrYmszAAc0j8Gwntzr8tI_sRUHuOk_bdp4H-UZlRpFsEU9Ys79Sf8f4U6SEE7u_ixcNZ8N9FZyso-zK38zg1_Q2zHe98QBZ8gY5xhUF3xAJPhc-JgX1dofv5nZ9-8QavwPqdcyNnwI9NR1t_RZP53BE-EcF43z-A_iFIyr9EVhQWWGKVPNy2lB6uP3rQgEdzmy_07S-WK2Dj7p-ZE4SRJEjthPKzIqqnfUBtEcAJSoS5dg");'></div>
+<div class="flex flex-col">
+<p class="text-[#0d101b] dark:text-white text-sm font-medium leading-tight">Armor Hybrid Case</p>
+<p class="text-gray-500 dark:text-gray-400 text-xs">Qty: 1</p>
+</div>
+</div>
+<div class="shrink-0"><p class="text-[#0d101b] dark:text-white text-sm font-medium">$17.50</p></div>
+</div>
+</div>
+<!-- Totals Breakdown -->
+<div class="mt-4 pt-4 border-t border-gray-100 dark:border-white/5 space-y-2">
+<div class="flex justify-between text-sm">
+<span class="text-gray-500 dark:text-gray-400">Subtotal</span>
+<span class="text-[#0d101b] dark:text-white">$142.50</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-gray-500 dark:text-gray-400">Shipping</span>
+<span class="text-green-600 font-medium">Free</span>
+</div>
+<div class="flex justify-between pt-2">
+<span class="text-[#0d101b] dark:text-white font-bold text-lg">Total Paid</span>
+<span class="text-primary font-bold text-lg">$142.50</span>
+</div>
+</div>
+</div>
+<!-- Receipt decorative notches -->
+<div class="notch-left"></div>
+<div class="notch-right"></div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="mt-auto px-6 pb-10 flex flex-col gap-4">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined">download</span>
+                Download Receipt
+            </button>
+<button class="w-full bg-white dark:bg-white/5 text-[#0d101b] dark:text-white font-semibold py-4 rounded-xl flex items-center justify-center gap-2 transition-all receipt-shadow hover:bg-gray-50">
+<span class="material-symbols-outlined text-primary">support_agent</span>
+                Contact Support
+            </button>
+<p class="text-center text-xs text-gray-400 dark:text-gray-500 pt-2">
+                Questions? Visit our <a class="text-primary font-medium" href="#">Help Center</a>
+</p>
+</div>
+<!-- Map Location Placeholder (Mini) -->
+<div class="px-6 pb-6">
+<div class="w-full h-32 rounded-xl overflow-hidden relative receipt-shadow border border-white dark:border-white/5">
+<div class="absolute inset-0 bg-cover bg-center" data-location="San Francisco, USA" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCapsglT7eoTnS47LIp67e_0zN6B4pMcldZ8wLaw0LfEiXtbpNMVA2WFGjzN3fVhZz74CHrvRa8BW5r2Z1rIRxLZDVowqQu3XGHFxZsOuTwGt8v_Dn0Sk6gdvJMSBqO5QWbzWf7M_hoOdh2ZlKaD5dIIgDzVhOpntFEbF571pXlSnL1JmFQR8JWYNGTFKQs8Ts9PjfByaakIWmmWhmGwiRRi8sacjZTdibvLqgsML4N9HPLwg9UUUzK-_Cjzzg63BF6lmkaCU8_xA');"></div>
+<div class="absolute inset-0 bg-black/10"></div>
+<div class="absolute bottom-2 left-2 bg-white/90 dark:bg-background-dark/90 px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary">location_on</span>
+<span class="text-[10px] font-bold uppercase tracking-tight dark:text-white">Store Location: SOMA Dist.</span>
+</div>
+</div>
+</div>
+</div>
+</body></html>

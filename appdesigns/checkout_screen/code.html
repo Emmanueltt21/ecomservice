@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ecomservice - Checkout</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#304fe8",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111421",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .ios-shadow {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<!-- Top App Bar -->
+<div class="fixed top-0 left-0 right-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto">
+<div class="text-[#0e101b] dark:text-white flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</div>
+<h2 class="text-[#0e101b] dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">Checkout</h2>
+</div>
+</div>
+<!-- Main Content -->
+<main class="pt-20 pb-32 max-w-md mx-auto px-4">
+<!-- Step Progress Indicator -->
+<div class="flex w-full flex-row items-center justify-center gap-3 py-6">
+<div class="flex items-center gap-2">
+<div class="h-2 w-2 rounded-full bg-primary"></div>
+<div class="h-1 w-8 bg-primary rounded-full"></div>
+</div>
+<div class="h-2 w-2 rounded-full bg-primary"></div>
+<div class="h-1 w-8 bg-gray-300 dark:bg-gray-700 rounded-full"></div>
+<div class="h-2 w-2 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+</div>
+<!-- Section 1: Delivery Address -->
+<div class="mb-6">
+<div class="flex justify-between items-center mb-2">
+<h3 class="text-[#0e101b] dark:text-white text-lg font-bold leading-tight tracking-tight">Delivery Address</h3>
+<button class="text-primary text-sm font-semibold hover:opacity-80">Pick on Map</button>
+</div>
+<div class="bg-white dark:bg-gray-900 rounded-xl p-4 ios-shadow mb-4 border border-gray-100 dark:border-gray-800">
+<div class="flex items-start gap-4">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-10">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div class="flex flex-col justify-center flex-1">
+<p class="text-[#0e101b] dark:text-white text-base font-semibold leading-normal">Home</p>
+<p class="text-[#4e5a97] dark:text-gray-400 text-sm font-normal leading-relaxed">123 Innovation Drive, Silicon Valley, CA 94043, USA</p>
+</div>
+<button class="shrink-0 text-gray-400">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+</div>
+<!-- Map Preview -->
+<div class="relative w-full h-32 bg-gray-200 dark:bg-gray-800 rounded-xl overflow-hidden border border-gray-100 dark:border-gray-800">
+<div class="absolute inset-0 bg-center bg-cover" data-alt="Map showing delivery location in Silicon Valley" data-location="Silicon Valley, California" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAsKqBTsAJf1syA8yziQAcQ0bP4-2LigDaEOj60QT5tdSmNznH4qozPzyXl0L4ubFhTUYPaO8e4kKMrSx15FSU_f51jA4CdpCkfURgIcg3pc_tWhHBogv5CeGdDaBGq354C50LTcj3m-lJFYoFkupPfonlfrse-8SjgGML5iSAz3GHDqodCdNGdn6nUh4pwmVtbAkXUzz-ktfUhHQTDP1BBTnATQClSxjAs_6kA70pqJpa5yr2IEkstz3udRSFOr4JPmEVzDXWFdg");'>
+</div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1">location_on</span>
+</div>
+</div>
+</div>
+<!-- Section 2: Payment Methods -->
+<div class="mb-6">
+<h3 class="text-[#0e101b] dark:text-white text-lg font-bold leading-tight tracking-tight mb-3">Payment Method</h3>
+<div class="space-y-3">
+<!-- Stripe / Credit Card -->
+<label class="flex items-center gap-4 bg-white dark:bg-gray-900 px-4 py-4 rounded-xl border-2 border-primary ios-shadow cursor-pointer">
+<div class="flex items-center justify-center bg-gray-50 dark:bg-gray-800 rounded-lg p-1 w-12 h-8">
+<img alt="Stripe Logo" class="w-10" data-alt="Stripe payment provider logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTN5PRdZgzoo6_HjyTXKqCjq6NQ4aHZBSDVNgfnJIh0CM-cwp7AqV0fHiv-gZ78m_FclWEgtfMtrCPUvHy9itrV0V8raToRYda4_uo3gqBly2BYR61qxfWHCir6VAQULOlrBepWUVSxlSQDg6wM_4nehgaARshBduVSBdmQRuuF142q8Lu1ZM0yd6cqxE-tMkY7jRGcP2iqmLEHEn1wosLu5zFx7aNZsFDuNObi_2qz4WrKglVawwCgGDodvhEx0w4SSj_LFMkrw"/>
+</div>
+<div class="flex flex-col flex-1">
+<span class="text-[#0e101b] dark:text-white text-base font-semibold">Credit or Debit Card</span>
+<span class="text-xs text-gray-500">Secure payment via Stripe</span>
+</div>
+<div class="w-5 h-5 rounded-full border-2 border-primary flex items-center justify-center">
+<div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+</div>
+</label>
+<!-- OM/MOMO -->
+<label class="flex items-center gap-4 bg-white dark:bg-gray-900 px-4 py-4 rounded-xl border border-gray-100 dark:border-gray-800 ios-shadow cursor-pointer opacity-80">
+<div class="flex items-center justify-center bg-gray-50 dark:bg-gray-800 rounded-lg p-1 w-12 h-8">
+<span class="material-symbols-outlined text-gray-600">account_balance_wallet</span>
+</div>
+<div class="flex flex-col flex-1">
+<span class="text-[#0e101b] dark:text-white text-base font-semibold">Mobile Wallet</span>
+<span class="text-xs text-gray-500">Orange Money / MOMO</span>
+</div>
+<div class="w-5 h-5 rounded-full border-2 border-gray-300"></div>
+</label>
+<!-- COD -->
+<label class="flex items-center gap-4 bg-white dark:bg-gray-900 px-4 py-4 rounded-xl border border-gray-100 dark:border-gray-800 ios-shadow cursor-pointer opacity-80">
+<div class="flex items-center justify-center bg-gray-50 dark:bg-gray-800 rounded-lg p-1 w-12 h-8">
+<span class="material-symbols-outlined text-gray-600">payments</span>
+</div>
+<div class="flex flex-col flex-1">
+<span class="text-[#0e101b] dark:text-white text-base font-semibold">Cash on Delivery</span>
+<span class="text-xs text-gray-500">Pay when you receive</span>
+</div>
+<div class="w-5 h-5 rounded-full border-2 border-gray-300"></div>
+</label>
+</div>
+</div>
+<!-- Section 3: Coupon Code -->
+<div class="mb-6">
+<h3 class="text-[#0e101b] dark:text-white text-sm font-bold uppercase tracking-wider mb-2 opacity-60">Promo Code</h3>
+<div class="relative flex items-center">
+<input class="w-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl h-12 px-4 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none text-[#0e101b] dark:text-white" placeholder="Enter coupon code" type="text"/>
+<button class="absolute right-2 h-8 px-4 bg-primary/10 text-primary rounded-lg text-sm font-bold hover:bg-primary hover:text-white transition-colors">
+                    Apply
+                </button>
+</div>
+</div>
+<!-- Section 4: Order Summary -->
+<div class="bg-white dark:bg-gray-900 rounded-xl p-5 ios-shadow border border-gray-100 dark:border-gray-800">
+<h3 class="text-[#0e101b] dark:text-white text-lg font-bold mb-4">Order Summary</h3>
+<div class="space-y-3">
+<div class="flex justify-between items-center text-sm">
+<span class="text-gray-500 dark:text-gray-400">Subtotal</span>
+<span class="text-[#0e101b] dark:text-white font-medium">$249.00</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-gray-500 dark:text-gray-400">Shipping</span>
+<span class="text-green-500 font-medium">Free</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-gray-500 dark:text-gray-400">Estimated Tax</span>
+<span class="text-[#0e101b] dark:text-white font-medium">$12.45</span>
+</div>
+<div class="pt-3 mt-3 border-t border-gray-100 dark:border-gray-800 flex justify-between items-center">
+<span class="text-[#0e101b] dark:text-white text-lg font-bold">Total</span>
+<span class="text-primary text-xl font-extrabold">$261.45</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Action Bar -->
+<div class="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 px-4 pt-4 pb-8 z-50">
+<div class="max-w-md mx-auto">
+<button class="w-full bg-primary text-white h-14 rounded-xl text-lg font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/30 active:scale-[0.98] transition-transform">
+<span>Place Order</span>
+<span class="material-symbols-outlined text-xl">arrow_forward</span>
+</button>
+</div>
+</div>
+</body></html>
