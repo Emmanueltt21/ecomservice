@@ -52,7 +52,18 @@ class AuthError extends AuthState {
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc() : super(AuthInitial()) {
     on<LoginEvent>(_onLogin);
+    on<SignupEvent>(_onSignup);
     on<LogoutEvent>(_onLogout);
+  }
+
+  void _onSignup(SignupEvent event, Emitter<AuthState> emit) async {
+    emit(AuthLoading());
+    await Future.delayed(const Duration(seconds: 1)); // Simulate API
+    if (event.email.isNotEmpty && event.password.length >= 6) {
+      emit(AuthAuthenticated(event.email));
+    } else {
+      emit(const AuthError('Signup failed. Check your details.'));
+    }
   }
 
   void _onLogin(LoginEvent event, Emitter<AuthState> emit) async {

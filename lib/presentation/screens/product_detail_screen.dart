@@ -11,6 +11,8 @@ import 'package:ecomservics/presentation/blocs/home_bloc.dart';
 import 'package:ecomservics/presentation/widgets/product_card.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ecomservics/presentation/routes/app_routes.dart';
+import 'package:ecomservics/core/utils/snackbar_helper.dart';
+import 'package:ecomservics/core/services/notification_service.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   final String productId;
@@ -92,8 +94,10 @@ class _ProductDetailViewState extends State<_ProductDetailView> {
                                   _CircleIconButton(
                                     icon: Icons.share,
                                     onTap: () {
-                                      ScaffoldMessenger.of(context).showSnackBar(
-                                        const SnackBar(content: Text('Share feature coming soon')),
+                                      SnackBarHelper.showHelp(
+                                        context: context,
+                                        title: 'Coming Soon',
+                                        message: 'Share feature is under development.',
                                       );
                                     },
                                   ),
@@ -448,6 +452,13 @@ class _ProductDetailViewState extends State<_ProductDetailView> {
                                 ),
                                 onPressed: () {
                                   context.read<FavoriteBloc>().add(ToggleFavorite(product));
+                                  SnackBarHelper.showSuccess(
+                                    context: context,
+                                    title: !isFav ? 'Added!' : 'Removed',
+                                    message: !isFav 
+                                        ? '${product.name} added to favorites'
+                                        : '${product.name} removed from favorites',
+                                  );
                                 },
                               ),
                             );
@@ -458,8 +469,15 @@ class _ProductDetailViewState extends State<_ProductDetailView> {
                           child: FilledButton.icon(
                             onPressed: () {
                               context.read<CartBloc>().add(AddToCart(product));
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text('${product.name} added to cart')),
+                              SnackBarHelper.showSuccess(
+                                context: context,
+                                title: 'Added to Cart',
+                                message: '${product.name} has been added to your shopping bag.',
+                              );
+                              NotificationService.showNotification(
+                                id: product.id.hashCode,
+                                title: 'Cart Updated',
+                                body: '${product.name} added to cart!',
                               );
                             },
                             style: FilledButton.styleFrom(

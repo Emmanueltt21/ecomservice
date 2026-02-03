@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ecomservics/presentation/routes/app_routes.dart';
+import 'package:ecomservics/presentation/blocs/auth_bloc.dart';
+import 'package:ecomservics/core/utils/snackbar_helper.dart';
+import 'package:ecomservics/core/services/notification_service.dart';
+import 'package:flutter/cupertino.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -38,7 +43,29 @@ class _SignupScreenState extends State<SignupScreen> {
         ),
         title: const Text('Create Account'),
       ),
-      body: SafeArea(
+      body: BlocListener<AuthBloc, AuthState>(
+        listener: (context, state) {
+          if (state is AuthAuthenticated) {
+            SnackBarHelper.showSuccess(
+              context: context,
+              title: 'Account Created!',
+              message: 'Welcome to EcomService.',
+            );
+            NotificationService.showNotification(
+              id: 1,
+              title: 'Welcome!',
+              body: 'Your account has been created successfully.',
+            );
+            context.go(AppRoutes.home);
+          } else if (state is AuthError) {
+            SnackBarHelper.showError(
+              context: context,
+              title: 'Signup Failed',
+              message: state.message,
+            );
+          }
+        },
+        child: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Column(
@@ -160,7 +187,17 @@ class _SignupScreenState extends State<SignupScreen> {
                 width: double.infinity,
                 child: FilledButton(
                   onPressed: () {
-                    // TODO: Implement Signup Logic
+                    if (_agreeToTerms) {
+                      context.read<AuthBloc>().add(
+                        SignupEvent(_emailController.text, _passwordController.text),
+                      );
+                    } else {
+                      SnackBarHelper.showWarning(
+                        context: context,
+                        title: 'Agreement Required',
+                        message: 'Please agree to the Terms and Conditions.',
+                      );
+                    }
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -202,6 +239,7 @@ class _SignupScreenState extends State<SignupScreen> {
             ],
           ),
         ),
+      ),
       ),
     );
   }

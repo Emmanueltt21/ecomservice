@@ -11,8 +11,11 @@ import 'package:ecomservics/presentation/blocs/auth_bloc.dart';
 import 'package:ecomservics/presentation/blocs/cart_bloc.dart';
 import 'package:ecomservics/presentation/blocs/favorite_bloc.dart';
 
+import 'package:ecomservics/core/services/notification_service.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await NotificationService.init();
   await di.init();
   runApp(const MyApp());
 }

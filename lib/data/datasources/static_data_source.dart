@@ -5,11 +5,11 @@ class StaticDataSource {
   Future<List<CategoryModel>> getCategories() async {
     await Future.delayed(const Duration(milliseconds: 800)); // Simulate network delay
     return [
-      const CategoryModel(id: '1', name: 'Electronics', image: 'assets/images/electronics.png'),
-      const CategoryModel(id: '2', name: 'Fashion', image: 'assets/images/fashion.png'),
-      const CategoryModel(id: '3', name: 'Home', image: 'assets/images/home.png'),
-      const CategoryModel(id: '4', name: 'Beauty', image: 'assets/images/beauty.png'),
-      const CategoryModel(id: '5', name: 'Sports', image: 'assets/images/sports.png'),
+      const CategoryModel(id: '1', name: 'Electronics', image: 'https://cdn-icons-png.flaticon.com/512/3659/3659899.png'),
+      const CategoryModel(id: '2', name: 'Fashion', image: 'https://cdn-icons-png.flaticon.com/512/3050/3050231.png'),
+      const CategoryModel(id: '3', name: 'Home', image: 'https://cdn-icons-png.flaticon.com/512/619/619153.png'),
+      const CategoryModel(id: '4', name: 'Beauty', image: 'https://cdn-icons-png.flaticon.com/512/2707/2707142.png'),
+      const CategoryModel(id: '5', name: 'Sports', image: 'https://cdn-icons-png.flaticon.com/512/3306/3306613.png'),
     ];
   }
 

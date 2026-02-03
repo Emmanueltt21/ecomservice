@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecomservics/presentation/blocs/home_bloc.dart';
 import 'package:ecomservics/presentation/routes/app_routes.dart';
 import 'package:ecomservics/presentation/widgets/shimmer_loading.dart';
@@ -44,7 +45,16 @@ class AllCategoriesScreen extends StatelessWidget {
                         color: theme.primaryColor.withOpacity(0.1),
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      child: Icon(Icons.category, color: theme.primaryColor),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: CachedNetworkImage(
+                          imageUrl: category.image,
+                          color: theme.primaryColor,
+                          fit: BoxFit.contain,
+                          placeholder: (context, url) => const SizedBox.shrink(),
+                          errorWidget: (context, url, error) => const Icon(Icons.category),
+                        ),
+                      ),
                     ),
                     title: Text(
                       category.name,

@@ -11,6 +11,9 @@ import 'package:ecomservics/domain/entities/product.dart';
 import 'package:ecomservics/presentation/routes/app_routes.dart';
 import 'package:ecomservics/generated/app_localizations.dart';
 import 'package:ecomservics/presentation/widgets/shimmer_loading.dart';
+import 'package:ecomservics/core/utils/snackbar_helper.dart';
+import 'package:ecomservics/core/services/notification_service.dart';
+import 'package:ecomservics/presentation/blocs/favorite_bloc.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -229,9 +232,37 @@ class _HomeView extends StatelessWidget {
                             ),
                             delegate: SliverChildBuilderDelegate(
                               (context, index) {
-                                return ProductCard(
-                                  product: state.trendingProducts[index],
-                                  onTap: () => context.go('${AppRoutes.home}/product/${state.trendingProducts[index].id}'),
+                                final product = state.trendingProducts[index];
+                                return BlocBuilder<FavoriteBloc, FavoriteState>(
+                                  builder: (context, favState) {
+                                    final isFav = favState.items.any((item) => item.id == product.id);
+                                    return ProductCard(
+                                      product: product,
+                                      isFavorite: isFav,
+                                      onTap: () => context.go('${AppRoutes.home}/product/${product.id}'),
+                                      onFavoriteToggle: () {
+                                        context.read<FavoriteBloc>().add(ToggleFavorite(product));
+                                        SnackBarHelper.showSuccess(
+                                          context: context,
+                                          title: isFav ? 'Removed' : 'Added',
+                                          message: isFav ? 'Removed from favorites' : 'Added to favorites',
+                                        );
+                                      },
+                                      onAddToCart: () {
+                                        context.read<CartBloc>().add(AddToCart(product));
+                                        SnackBarHelper.showSuccess(
+                                          context: context,
+                                          title: 'Added!',
+                                          message: 'Added to your cart',
+                                        );
+                                        NotificationService.showNotification(
+                                          id: product.id.hashCode,
+                                          title: 'Cart Updated',
+                                          body: '${product.name} added to cart!',
+                                        );
+                                      },
+                                    );
+                                  },
                                 );
                               },
                               childCount: state.trendingProducts.length,
@@ -426,21 +457,33 @@ class _CategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Column(
-      children: [
-        Container(
-          width: 64,
-          height: 64,
-          decoration: BoxDecoration(
-            color: theme.cardColor,
-            borderRadius: BorderRadius.circular(16),
-            boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 4)],
+    return GestureDetector(
+      onTap: ()=>  context.push('${AppRoutes.allProducts}?categoryId=${category.id}&categoryName=${category.name}'),
+      child: Column(
+        children: [
+          Container(
+            width: 64,
+            height: 64,
+            decoration: BoxDecoration(
+              color: theme.cardColor,
+              borderRadius: BorderRadius.circular(16),
+              boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 4)],
+            ),
+            child: Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: CachedNetworkImage(
+              imageUrl: category.image,
+              color: theme.primaryColor,
+              fit: BoxFit.contain,
+              placeholder: (context, url) => const SizedBox.shrink(),
+              errorWidget: (context, url, error) => const Icon(Icons.category),
+            ),
           ),
-          child: Icon(Icons.category, color: theme.primaryColor, size: 28), // Generic icon for now
-        ),
-        const SizedBox(height: 8),
-        Text(category.name, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500)),
-      ],
+          ),
+          const SizedBox(height: 8),
+          Text(category.name, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500)),
+        ],
+      ),
     );
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecomservics/domain/entities/product.dart';
+import 'package:ecomservics/core/utils/snackbar_helper.dart';
+import 'package:ecomservics/core/services/notification_service.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;

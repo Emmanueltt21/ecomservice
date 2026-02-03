@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:ecomservics/presentation/blocs/auth_bloc.dart';
 import 'package:ecomservics/presentation/routes/app_routes.dart';
 import 'package:ecomservics/generated/app_localizations.dart';
+import 'package:ecomservics/core/utils/snackbar_helper.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -32,10 +33,17 @@ class _LoginScreenState extends State<LoginScreen> {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state is AuthAuthenticated) {
+          SnackBarHelper.showSuccess(
+            context: context,
+            title: 'Welcome Back!',
+            message: 'You have successfully logged in.',
+          );
           context.go(AppRoutes.home);
         } else if (state is AuthError) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(state.message)),
+          SnackBarHelper.showError(
+            context: context,
+            title: 'Login Failed',
+            message: state.message,
           );
         }
       },

@@ -6,6 +6,10 @@ import 'package:ecomservics/presentation/blocs/all_products_bloc.dart';
 import 'package:ecomservics/presentation/widgets/product_card.dart';
 import 'package:ecomservics/presentation/routes/app_routes.dart';
 import 'package:ecomservics/presentation/widgets/shimmer_loading.dart';
+import 'package:ecomservics/core/utils/snackbar_helper.dart';
+import 'package:ecomservics/core/services/notification_service.dart';
+import 'package:ecomservics/presentation/blocs/favorite_bloc.dart';
+import 'package:ecomservics/presentation/blocs/cart_bloc.dart';
 
 class AllProductsScreen extends StatefulWidget {
   final String? categoryId;
@@ -92,9 +96,36 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                 }
                 
                 final product = state.products[index];
-                return ProductCard(
-                  product: product,
-                  onTap: () => context.push('${AppRoutes.home}/product/${product.id}'),
+                return BlocBuilder<FavoriteBloc, FavoriteState>(
+                  builder: (context, favState) {
+                    final isFav = favState.items.any((item) => item.id == product.id);
+                    return ProductCard(
+                      product: product,
+                      isFavorite: isFav,
+                      onTap: () => context.push('${AppRoutes.home}/product/${product.id}'),
+                      onFavoriteToggle: () {
+                        context.read<FavoriteBloc>().add(ToggleFavorite(product));
+                        SnackBarHelper.showSuccess(
+                          context: context,
+                          title: isFav ? 'Removed' : 'Added',
+                          message: isFav ? 'Removed from favorites' : 'Added to favorites',
+                        );
+                      },
+                      onAddToCart: () {
+                        context.read<CartBloc>().add(AddToCart(product));
+                        SnackBarHelper.showSuccess(
+                          context: context,
+                          title: 'Added!',
+                          message: 'Added to your cart',
+                        );
+                        NotificationService.showNotification(
+                          id: product.id.hashCode,
+                          title: 'Cart Updated',
+                          body: '${product.name} added to cart!',
+                        );
+                      },
+                    );
+                  },
                 );
               },
             );
